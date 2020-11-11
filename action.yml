@@ -8,18 +8,10 @@ branding:
   color: green
 
 inputs:
-  options:
-      description: Options to pass to molecule such as --debug to enable debug mode
-      required: false
-
   command:
-    description: Command to pass to molecule, for example, lint, converge, idempotence, test or verify.
+    description: Command to pass to molecule
     required: true
-    default: test
-    
-  args:
-    description: Arguments to pass to molecule such as --scenario-name to target a specific scenario
-    required: false
+    default: molecule test
 
   working_dir:
     description: |

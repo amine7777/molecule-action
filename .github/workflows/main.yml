@@ -8,7 +8,21 @@ jobs:
     - name: Check out the codebase.
       uses: actions/checkout@v2
 
+    - name: Create a scenario
+      uses: amine7777/molecule-action@v1
+      with:
+        command: molecule init scenario
+      env:
+        PY_COLORS: '1'
+        ANSIBLE_FORCE_COLOR: '1'
+
+
     - name: molecule test
       uses: amine7777/molecule-action@v1
       with:
-        command: test
+        command: molecule test  
+      env:
+        PY_COLORS: '1'
+        ANSIBLE_FORCE_COLOR: '1'
+
+      

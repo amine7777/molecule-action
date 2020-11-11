@@ -1,15 +1,24 @@
-name: 'Hello World'
-description: 'Greet someone and record the time'
+---
+name: Molecule
+description: Molecule is a tool to test ansible playbooks
+author: amine7777
+
+branding:
+  icon: play
+  color: green
+
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  options:
+      description: Options to pass to molecule such as --debug to enable debug mode
+      required: false
+
+  command:
+    description: Command to pass to molecule, for example, lint, converge, idempotence, test or verify.
     required: true
-    default: 'World'
-outputs:
-  time: # id of output
-    description: 'The time we greeted you'
-runs:
-  using: 'docker'
-  image: 'Dockerfile'
+    default: test
   args:
-    - ${{ inputs.who-to-greet }}
+    description: Arguments to pass to molecule such as --scenario-name to target a specific scenario
+    required: false
+runs:
+  using: docker
+  image: 'docker://amine7777/molecule-action:latest'

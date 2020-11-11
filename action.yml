@@ -1,6 +1,6 @@
 ---
 name: Molecule Test Ansible
-description: Molecule is a tool to test ansible playbooks
+description: Molecule is a tool to test ansible roles.
 author: amine7777
 
 branding:

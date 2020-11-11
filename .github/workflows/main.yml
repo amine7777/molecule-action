@@ -3,7 +3,7 @@ on: [push]
 jobs:
   molecule:
     runs-on: ubuntu-latest
-    name: Run molecule 
+    name: molecule 
     steps:
     - name: Check out the codebase.
       uses: actions/checkout@v2

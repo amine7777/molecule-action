@@ -1,5 +1,6 @@
 #!/bin/sh -l
 
-echo "Hello $1"
-time=$(date)
-echo "::set-output name=time::$time"
+apk add build-base libffi-dev musl-dev openssl-dev
+apk add python3-dev py-pip
+pip3 install docker ansible
+pip3 install molecule[docker] yamllint ansible-lint

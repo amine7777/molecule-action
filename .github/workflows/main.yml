@@ -5,10 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Run molecule 
     steps:
-    - name: Hello world action step
-      id: hello
+    - name: Check out the codebase.
+      uses: actions/checkout@v2
+
+    - name: molecule test
       uses: amine7777/molecule-action@v1
-     
-    # Use the output from the `hello` step
-    - name: Get the output time
-      run: molecule init scenario
+      with:
+        command: init role
+        args: zza

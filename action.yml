@@ -19,6 +19,14 @@ inputs:
   args:
     description: Arguments to pass to molecule such as --scenario-name to target a specific scenario
     required: false
+
+  working_dir:
+    description: |
+      Path to another directory in the repository, where molecule command will be issued from.
+      Useful in those cases where Ansible roles are not in git repository root.
+    required: false
+    default: ${{ github.repository }}
+
 runs:
   using: docker
   image: 'docker://amine7777/molecule-action:latest'

@@ -11,5 +11,4 @@ jobs:
     - name: molecule test
       uses: amine7777/molecule-action@v1
       with:
-        command: init role
-        args: zza
+        command: init role ee

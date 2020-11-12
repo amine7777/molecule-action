@@ -3,7 +3,7 @@
 This action helps you to use molecule tool for testing Ansible roles.
 
 # Usage 
-Since github clone the project in /github/workspace 
+Since github clone the project in /github/workspace:
 
 - You need to add ***path*** in the checkout action.
 

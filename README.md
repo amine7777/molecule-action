@@ -2,6 +2,17 @@
 
 This action helps you to use molecule tool for testing Ansible roles.
 
+# Usage 
+Since github clone the project in /github/workspace you need to include your role by calling 
+***MOLECULE_PROJECT_DIRECTORY*** in converge.yml
+
+```yaml
+- name: Include role
+  include_role:
+    name: "{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') | basename }}"
+
+```
+
 # Inputs
 ```yaml
   command:

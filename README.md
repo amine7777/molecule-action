@@ -3,8 +3,13 @@
 This action helps you to use molecule tool for testing Ansible roles.
 
 # Usage 
-Since github clone the project in /github/workspace you need to include your role by calling 
-***MOLECULE_PROJECT_DIRECTORY*** in converge.yml
+Since github clone the project in /github/workspace 
+
+- You need to add ***path*** in the checkout action.
+
+OR
+
+ - You need to include your role by calling ***MOLECULE_PROJECT_DIRECTORY*** in converge.yml file.
 
 ```yaml
 - name: Include role
@@ -37,22 +42,24 @@ jobs:
     runs-on: ubuntu-latest
     name: molecule 
     steps:
-    - name: Check out the codebase.
-      uses: actions/checkout@v2
+      - name: Check out the codebase.
+        uses: actions/checkout@v2
+        with:
+          path: ${{ github.repository }}
 
-    - name: Create a scenario
-      uses: amine7777/molecule-action@v1
-      with:
-        command: molecule init scenario
-      env:
-        PY_COLORS: '1'
-        ANSIBLE_FORCE_COLOR: '1'
+      - name: Create a scenario
+        uses: amine7777/molecule-action@v1
+        with:
+          command: molecule init scenario
+        env:
+          PY_COLORS: '1'
+          ANSIBLE_FORCE_COLOR: '1'
 
-    - name: molecule test
-      uses: amine7777/molecule-action@v1
-      with:
-        command: molecule test  
-      env:
-        PY_COLORS: '1'
-        ANSIBLE_FORCE_COLOR: '1'
+      - name: molecule test
+        uses: amine7777/molecule-action@v1
+        with:
+          command: molecule test  
+        env:
+          PY_COLORS: '1'
+          ANSIBLE_FORCE_COLOR: '1'
 ```

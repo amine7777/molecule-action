@@ -10,7 +10,6 @@ Since github clone the project in /github/workspace you need to include your rol
 - name: Include role
   include_role:
     name: "{{ lookup('env', 'MOLECULE_PROJECT_DIRECTORY') | basename }}"
-
 ```
 
 # Inputs
@@ -48,7 +47,6 @@ jobs:
       env:
         PY_COLORS: '1'
         ANSIBLE_FORCE_COLOR: '1'
-
 
     - name: molecule test
       uses: amine7777/molecule-action@v1
